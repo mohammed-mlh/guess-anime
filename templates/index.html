@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Anime Guessing Game</title>
+    <script src="https://unpkg.com/htmx.org@1.9.10" integrity="sha384-D1Kt99CQMDuVetoL1lrYwg5t+9QdHe7NLX/SoJYkXDFfX37iInKRy5xLSi8nO7UC" crossorigin="anonymous"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+  </head>
+<body class="text-white h-screen relative overflow-hidden">
+  <div class="px-4 py-8 flex flex-col justify-center items-center gap-8 h-full z-[20]">
+    <h1 class="text-center text-6xl md:text-7xl flex justify-center gap-4">
+      <span class="bg-green-500 rounded-lg w-48 block p-2">Up</span>
+      <span>or</span>
+      <span class="w-48 block bg-red-500 rounded-lg p-2">Down</span>
+    </h1>
+      <p class="font-semibold text-center text-xl drop-shadow-xl text-black bg-blue-500 p-2">Test your knowledge by guessing which anime has a higher rating among two randomly chosen ones.</p>
+      <!-- <div id="score-panel" class="flex gap-4">
+          <p class="">Score: <span id="score">{{session['score']}}</span></p>
+          <p>Streak: <span id="streak">0</span></p>
+      </div> -->
+      <p class="mt-0w-[70%] text-center">
+          <a class="bg-blue-500 hover:bg-blue-700 block w-full transition duration-150 text-white font-bold py-2 px-8 rounded-lg" href="/guess">Start Game</a>
+      </p>
+  </div>
+
+  <div class="flex flex-wrap rotate-45 h-screen absolute inset-0 -top-60 -right-[30rem] z-[-10]">
+    {% for anime in animes %}
+      <div class="object-cover w-[20%] md:w-[13%] overflow-hidden rounded-lg ">
+        <img src="{{anime.image}}" alt="" class="h-full w-full object-cover object-center">
+      </div>
+    {% endfor %}
+  </div>
+</body>
+</html>
